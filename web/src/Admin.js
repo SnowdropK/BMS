@@ -13,13 +13,13 @@ export default class Admin extends React.Component {
           <NavLeft/>
         </Col>
         <Col span="20" className="main">
-          {/* <Header/> */}
+          测试2222
+          {/* <Header/>
           <Row className="content">
-              {/* <Home/> */}
-              {/* {this.props.children} */}
-              测试2222
+              <Home/>
+              {this.props.children}
           </Row>
-          {/* <Footer/> */}
+          <Footer/> */}
         </Col>
       </Row>
     )
