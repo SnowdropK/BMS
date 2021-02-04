@@ -1,0 +1,48 @@
+@import './../../style/default.less';
+
+.header {
+  background-color: @colorM;
+
+  .header-title {
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    text-align: right;
+  }
+
+  .header-navigation {
+    height: 40px;
+    padding: 0 20px;
+    border-top: 1px solid #f9c700;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .header-navigation-menu {
+      position: relative;
+      flex-grow: 4;
+      text-align: center;
+      line-height: 40px;
+      font-size: @fontC;
+      z-index: 2;
+
+      &:after {
+        position: absolute;
+        content: '';
+        left: 50%;
+        top: 39px;
+        transform: translate(-50%, 0);
+        border: 10px solid transparent;
+        border-top: 10px solid @colorM;
+        //box-shadow:2px 2px 5px #000; //会变成矩形阴影
+        filter: drop-shadow(0 2px 2px rgba(0, 0, 0, .2));
+      }
+    }
+
+    .header-navigation-time {
+      flex-grow: 20;
+      text-align: right;
+      line-height: 40px;
+    }
+  }
+}
