@@ -8,15 +8,7 @@ const menuList = [
         key: '/AntdPackage',
         children: [
             {
-                title: '按钮-Button',
-                key: '/AntdPackage/Button',
-            },
-            {
-                title: '弹窗-Modal',
-                key: '/AntdPackage/Modal',
-            },
-            {
-                title: '下拉选项-Select',
+                title: '选择器-Select',
                 key: '/AntdPackage/Select',
             },
             {
@@ -24,13 +16,9 @@ const menuList = [
                 key: '/AntdPackage/Tabel',
             },
             {
-                title: '图片画廊',
-                key: '/AntdPackage/Gallery',
+                title: '时间选择-TimePicker',
+                key: '/AntdPackage/TimePicker',
             },
-            {
-                title: '轮播图',
-                key: '/AntdPackage/Carousel'
-            }
         ]
     },
     {

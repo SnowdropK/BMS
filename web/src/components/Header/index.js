@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col } from 'antd'
 import Util from '../../utils/utils'
 import axios from './../../axios'
+import avatarPic from '../../img/panghu.png';
 
 import './index.less'
 
@@ -42,27 +43,32 @@ export default class Header extends React.Component {
     })
   }
 
-  // 默认请求我们的接口数据
-  requestList = ()=>{
-    let _this = this;
-    axios.ajax({
-      url: '/open_city',
-      data:{
-        params: {page:this.params.page}
-      }
-    }).then((res)=>{
-        let list = res.list
-        this.setState({list})
-    })
-  }
+  // 默认请求接口数据
+  // requestList = ()=>{
+  //   let _this = this;
+  //   axios.ajax({
+  //     url: '/open_city',
+  //     data:{
+  //       params: {page:this.params.page}
+  //     }
+  //   }).then((res)=>{
+  //       let list = res.list
+  //       this.setState({list})
+  //   })
+  // }
 
   render() {
     return (
       <div className="header">
         <Row className="header-title">
           <Col span={24}>
-            <span style={{marginRight: 5}} >{this.state.userName}</span>
-            <a href="#">退出</a>
+            <img src={avatarPic} className="user-avatar mr-5" alt="" />
+            <span className="mr-5">{this.state.userName}</span>
+            {/* 
+              如果没有属性 rel="noopener noreferrer"打开的页面的域名和当前页面的域名是在同一个域名下，
+              在打开后的控制台输入window.opener.alert(1),上一个页面会弹出1 
+            */}
+            <a href="https://www.baidu.com" target="_blank" rel="noopener noreferrer">退出</a>
           </Col>
         </Row>
         <div className="header-navigation">
