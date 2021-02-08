@@ -19,6 +19,7 @@ class Header extends React.Component {
   componentDidMount() {
     this.getSysTime()
     this.getWeatherMessage()
+    console.log('55555', this.props)
   }
 
   getSysTime() {

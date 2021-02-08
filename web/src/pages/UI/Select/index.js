@@ -2,6 +2,8 @@ import React from 'react'
 import { Card, Switch } from 'antd'
 import { DropDownSelect, SearchInputSelect } from './../../../components/AntdPackage/Select'
 import { OPTION_LIST } from './../../../mock'
+import { connect } from 'react-redux'
+import { switchMenu } from './../../../redux/action'
 
 import './index.less'
 
@@ -11,13 +13,20 @@ const DEFAULT_SELECT_VALUE = {
   'searchInputMultipleSelectValue': ["Sasuke"]
 }
 
-export default class AntdPackage extends React.Component {
+class Select extends React.Component {
 
   state = {
     switchChecked: true,
     dropDownSelectValue: DEFAULT_SELECT_VALUE['dropDownSelectValue'],
     searchInputSelectValue: DEFAULT_SELECT_VALUE['searchInputSelectValue'],
     searchInputMultipleSelectValue: DEFAULT_SELECT_VALUE['searchInputMultipleSelectValue'],
+  }
+
+  componentDidMount(){
+    console.log('77777',this.props.match.params)
+    const { dispatch } = this.props;
+    const { menuName } = this.props.match.params
+    dispatch(switchMenu(menuName));
   }
 
   /**
@@ -74,3 +83,5 @@ export default class AntdPackage extends React.Component {
     )
   }
 }
+
+export default connect()(Select)

@@ -30,7 +30,7 @@ export default class ERouter extends React.Component{
                     {/* AntD组件二次封装 */}
                     <Route path='/AntdPackage/Button' component={Button}/>
                     <Route path='/AntdPackage/Modal' component={Modal}/>
-                    <Route path='/AntdPackage/Select' component={Select}/>
+                    <Route path='/AntdPackage/Select/:menuName' component={Select}/>
                     <Route path='/AntdPackage/Tabel' component={Tabel}/>
                     <Route path='/AntdPackage/TimePicker' component={TimePicker}/>
                     <Route path='/AntdPackage/Carousel' component={Carousel}/>

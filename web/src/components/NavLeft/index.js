@@ -29,7 +29,7 @@ class NavLeft extends React.Component {
     if (key === this.state.currentMenuKey) {
       return false;
     }
-console.log('item.props.title', item.props.title)
+
     // 事件派发，自动调用reducer，通过reducer保存到store对象中
     const { dispatch } = this.props;
     dispatch(switchMenu(item.props.title));
@@ -54,7 +54,7 @@ console.log('item.props.title', item.props.title)
       }
       return (
         <Menu.Item title={item.title} key={item.key}>
-          <NavLink to={item.key}>{item.title}</NavLink>
+          <NavLink to={`${item.key}/${item.title}`}>{item.title}</NavLink>
         </Menu.Item>
       )
     })
