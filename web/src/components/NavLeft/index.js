@@ -2,19 +2,41 @@ import React from 'react'
 import { Menu } from 'antd'
 import { NavLink } from 'react-router-dom'
 import MenuConfig from './../../config/menuConfig'
+import { connect } from 'react-redux'
+import { switchMenu } from './../../redux/action'
 import './index.less'
+
 const SubMenu = Menu.SubMenu;
 
-export default class NavLeft extends React.Component {
+class NavLeft extends React.Component {
 
   constructor(props){
     super(props)
     this.state = {
+      currentMenuKey: ''
     }
   }
 
+  /**
+   * 跳转至首页
+   */
   handleHomeClick = () => {
+    const { dispatch } = this.props
+    dispatch(switchMenu('首页'))
+  } 
 
+  handleMenuClick = ({item, key}) => {
+    if (key === this.state.currentMenuKey) {
+      return false;
+    }
+
+    // 事件派发，自动调用reducer，通过reducer保存到store对象中
+    const { dispatch } = this.props;
+    dispatch(switchMenu(item.props.title));
+
+    this.setState({
+        currentKey: key
+    });
   }
 
   /**
@@ -31,8 +53,8 @@ export default class NavLeft extends React.Component {
         )
       }
       return (
-        <Menu.Item key={item.key}>
-          <NavLink to={item.key}>{item.title}</NavLink>
+        <Menu.Item title={item.title} key={item.key}>
+          <NavLink to={`${item.key}/${item.title}`}>{item.title}</NavLink>
         </Menu.Item>
       )
     })
@@ -48,6 +70,7 @@ export default class NavLeft extends React.Component {
         </NavLink>
         <Menu
           theme="dark"
+          onClick={this.handleMenuClick}
         >
           {this.renderMenuTreeNode(MenuConfig)}
         </Menu>
@@ -55,3 +78,5 @@ export default class NavLeft extends React.Component {
     )
   }
 }
+
+export default connect()(NavLeft)
