@@ -3,10 +3,11 @@ import { Row, Col } from 'antd'
 import Util from '../../utils/utils'
 import axios from './../../axios'
 import avatarPic from '../../img/panghu.png';
+import { connect } from 'react-redux'
 
 import './index.less'
 
-export default class Header extends React.Component {
+class Header extends React.Component {
 
   state = {
     userName: '宇智波胖虎',
@@ -83,3 +84,11 @@ export default class Header extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+      menuName: state.menuName
+  }
+};
+
+export default connect(mapStateToProps)(Header)
